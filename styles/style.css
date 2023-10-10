@@ -120,7 +120,7 @@ input::placeholder {
 }
 
 /*focus-visible(has) для Firefox*/
-@supports search-form__label(:has(a, b)) {
+@supports not selector(.search-form__label:focus-within:has(a, b)) {
   .search-form__label:focus-within {
     outline: 1px solid #fff;
     outline-offset: 1px;
