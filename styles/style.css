@@ -12,6 +12,10 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
+  padding: 133px 30px;
+  display: grid;
+  grid-template: 534px/711px 399px;
+  place-content: center;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -38,6 +42,7 @@ ol {
 }
 
 input::placeholder {
+  width: 100%;
   color: rgba(255, 255, 255 / 0.7);
   font-weight: 400;
   line-height: normal;
@@ -54,17 +59,21 @@ input::placeholder {
 } 
 
 .content {
-  margin: 133px 30px;
-  display: grid;
-  grid-template: 534px/711px 399px;
-  align-items: end;
-  column-gap: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.result {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .result__video-container {
   width: 711px;
   height: 386px;
-  margin-bottom: 16px;
   position: relative;
 }
 
@@ -72,16 +81,17 @@ input::placeholder {
   width: inherit;
   height: inherit;
   object-fit: fill;
+  object-position: center;
 }
 
 .search-form {
-  display: grid;
-  grid-template: 54px/225px 212px 1fr;
+  height: 54px;
+  padding-bottom: 3px;
+  display: flex;
   justify-content: start;
-
 }
 
-fieldset {
+.search-form__fieldset {
   width: 100%;
   height: 54px;
   border: 0;
@@ -89,6 +99,7 @@ fieldset {
 
 .search-form__fieldset-title {
   margin-bottom: 5px;
+  font-size: 18px;
   font-weight: 400;
   line-height: normal;
 }
@@ -100,12 +111,28 @@ fieldset {
 
 .search-form__label {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   width: fit-content;
 }
 
+.search-form__label:has(.search-form__textfield:active) {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__label:hover .search-form__label-text{
+  text-decoration: underline;
+}
+
 .search-form__textfield {
-  width: 100%;
+  width: 227px;
+  display: block;
   appearance: none;
   color: inherit;
   font-family: inherit;
@@ -117,6 +144,16 @@ fieldset {
   border: 0;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.search-form__textfield:active {
+  border: 1px solid #fff;
+}
+
+.search-form__textfield:focus {
+  outline:none;
 }
 
 .search-form__pseudo-checkbox {
@@ -124,7 +161,11 @@ fieldset {
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
+}
 
+.search-form__pseudo-checkbox:active {
+  background-image: url(../images/Group\ 38.svg);
+  background-position: center;
 }
 
 input[type="checkbox"]:checked + span {
@@ -133,10 +174,10 @@ input[type="checkbox"]:checked + span {
 }
 
 .content__details {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24px;
+  padding-bottom: 3px;
 }
 
 .title {
@@ -157,13 +198,41 @@ input[type="checkbox"]:checked + span {
   position: relative;
 }
 
+.content__list-item {
+  display: block;
+}
+
 .content__list-item:not(:last-child) {
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .content__card-link {
+  display: block;
+  padding: 2px;
   color: #fff;
   text-decoration: none;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__video-card {
@@ -189,6 +258,7 @@ input[type="checkbox"]:checked + span {
   width: 194px;
   height: 103px;
   object-fit: fill;
+  object-position: center;
 }
 
 .button {
@@ -210,6 +280,23 @@ input[type="checkbox"]:checked + span {
   border: 0;
   border: 1px solid #fff;
 }
+
+button:hover {
+  text-decoration: underline;
+}
+
+button:active {
+  background-color: #545050;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+} 
 
 .search-form__submit-button {
   width: 194px;
