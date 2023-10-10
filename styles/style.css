@@ -14,8 +14,8 @@ html {
   margin: auto;
   padding: 133px 30px;
   display: grid;
-  grid-template: 534px/711px 399px;
-  place-content: center;
+  grid-template-columns: 711px 30px 399px;
+  align-content: center;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
@@ -88,7 +88,7 @@ input::placeholder {
   display: flex;
   justify-content: start;
   gap: 39px;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 
 .search-form__fieldset {
@@ -188,7 +188,7 @@ input[type="checkbox"]:checked + span {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
 }
 
 .title {
